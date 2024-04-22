@@ -1,0 +1,33 @@
+CREATE DATABASE "namnet ni önskar på tabellen"
+
+CREATE TABLE currency (
+    currencyId INT NOT NULL AUTO_INCREMENT,
+    currencyName VARCHAR(50) NOT NULL,
+    PRIMARY KEY  (currencyId)
+);
+
+CREATE TABLE language (
+    languageId INT NOT NULL AUTO_INCREMENT,
+    languageName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (languageId)
+);
+
+CREATE TABLE country (
+    countryId INT NOT NULL AUTO_INCREMENT,
+    countryCurrencyId INT,
+    countryLanguageId INT,
+    countryName VARCHAR(50),
+    countryPopulation INT,
+    PRIMARY KEY (countryId),
+    FOREIGN KEY (countryCurrencyId) REFERENCES currency (currencyId),
+    FOREIGN KEY (countryLanguageId) REFERENCES language (languageId)
+);
+
+CREATE TABLE city (
+    cityId INT NOT NULL AUTO_INCREMENT,
+    cityCountryId INT,
+    cityName VARCHAR(50),
+    cityPopulation VARCHAR(50),
+    PRIMARY KEY (cityId),
+    FOREIGN KEY (cityCountryId) REFERENCES city (cityId)
+);
