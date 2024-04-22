@@ -1,14 +1,16 @@
-CREATE DATABASE "namnet ni önskar på tabellen"
+CREATE DATABASE countryBlogLabb3;
+
+DROP DATABASE countryBlogLabb3;
 
 CREATE TABLE currency (
     currencyId INT NOT NULL AUTO_INCREMENT,
-    currencyName VARCHAR(50) NOT NULL,
+    currencyName VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY  (currencyId)
 );
 
 CREATE TABLE language (
     languageId INT NOT NULL AUTO_INCREMENT,
-    languageName VARCHAR(50) NOT NULL,
+    languageName VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY (languageId)
 );
 
@@ -16,7 +18,7 @@ CREATE TABLE country (
     countryId INT NOT NULL AUTO_INCREMENT,
     countryCurrencyId INT,
     countryLanguageId INT,
-    countryName VARCHAR(50),
+    countryName VARCHAR(50) NOT NULL UNIQUE ,
     countryPopulation INT,
     PRIMARY KEY (countryId),
     FOREIGN KEY (countryCurrencyId) REFERENCES currency (currencyId),
@@ -26,8 +28,54 @@ CREATE TABLE country (
 CREATE TABLE city (
     cityId INT NOT NULL AUTO_INCREMENT,
     cityCountryId INT,
-    cityName VARCHAR(50),
+    cityName VARCHAR(50) NOT NULL UNIQUE,
     cityPopulation VARCHAR(50),
     PRIMARY KEY (cityId),
     FOREIGN KEY (cityCountryId) REFERENCES city (cityId)
 );
+
+INSERT INTO language ( languageName) VALUES ('Spanish'),
+('English'),('French'), ('German'),('Swedish'),('Russian'),('Italian');
+
+INSERT INTO currency (currencyName) VALUES
+('US Dollar'),
+('Euro'),
+('British Pound'),
+('Japanese Yen'),
+('Canadian Dollar'),
+('Australian Dollar'),
+('Swiss Franc'),
+('Chinese Yuan'),
+('Indian Rupee'),
+('Mexican Peso');
+
+INSERT INTO country (countryName, countryCurrencyId, countryLanguageId, countryPopulation) VALUES
+('Spain', 2, 1, 46733038),            -- Spain, Euro, Spanish
+('United States', 1, 2, 331002651),   -- United States, US Dollar, English
+('France', 2, 3, 65273511),           -- France, Euro, French
+('Germany', 4, 4, 83783942),          -- Germany, German
+('Sweden', 5, 5, 10099265),           -- Sweden, Swedish
+('Russia', 6, 6, 145934462),          -- Russia, Russian
+('Italy', 10, 7, 60461826),           -- Italy, Mexican Peso, Italian
+('United Kingdom', 3, 2, 67886011),   -- United Kingdom, British Pound, English
+('Canada', 5, 2, 37742154),           -- Canada, Canadian Dollar, English
+('Australia', 6, 2, 25499884);        -- Australia, Australian Dollar, English
+
+
+INSERT INTO city (cityCountryId, cityName, cityPopulation) VALUES
+(1, 'Madrid', 3300000),           -- Madrid, Spain
+(2, 'New York City', 8400000),    -- New York City, United States
+(3, 'Paris', 2100000),            -- Paris, France
+(4, 'Berlin', 3700000),           -- Berlin, Germany
+(5, 'Stockholm', 975904),         -- Stockholm, Sweden
+(6, 'Moscow', 12500000),          -- Moscow, Russia
+(7, 'Rome', 2800000),             -- Rome, Italy
+(8, 'London', 8900000),           -- London, United Kingdom
+(9, 'Toronto', 2900000),          -- Toronto, Canada
+(10, 'Sydney', 5300000);          -- Sydney, Australia
+
+
+SELECT * FROM language;
+SELECT * FROM currency;
+SELECT * FROM  country;
+SELECT * FROM city;
