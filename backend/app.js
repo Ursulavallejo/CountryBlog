@@ -16,11 +16,11 @@ app.use(express.static('public'))
 const countryRoutes = require('./routes/countryRoutes')
 const cityRoutes = require('./routes/cityRoutes')
 // const languageRoutes = require('./routes/languageRoutes')
-// const currencyRoutes = require('./routes/currencyRoutes')
+const currencyRoutes = require('./routes/currencyRoutes')
 
 app.use(countryRoutes)
 app.use(cityRoutes)
 // app.use(languageRoutes)
-// app.use(currencyRoutes)
+app.use(currencyRoutes)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
