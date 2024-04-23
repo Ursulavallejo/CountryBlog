@@ -1,15 +1,5 @@
 const connectionMySQL = require('../connectionMySQL')
 
-// Check first if the conncetions works in insomnia before connect them with MYSQL
-
-// exports.createCountry = (req, res) => {
-//   res.send('Add a new country.')
-// }
-
-// exports.getCountries = (req, res) => {
-//   res.send('Show all countries.')
-// }
-
 exports.getCountries = async (req, res) => {
   let sql = 'SELECT * FROM country'
   try {

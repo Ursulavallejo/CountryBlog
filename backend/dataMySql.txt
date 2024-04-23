@@ -31,7 +31,7 @@ CREATE TABLE city (
     cityName VARCHAR(50) NOT NULL UNIQUE,
     cityPopulation INT,
     PRIMARY KEY (cityId),
-    FOREIGN KEY (cityCountryId) REFERENCES city (cityId)
+    FOREIGN KEY (cityCountryId) REFERENCES country(countryId)
 );
 
 INSERT INTO language ( languageName) VALUES ('Spanish'),

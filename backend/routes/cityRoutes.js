@@ -4,6 +4,8 @@ const cityController = require('../controllers/cityController')
 
 router.get('/api/cities', cityController.getCities)
 router.post('/api/cities', cityController.createCity)
+router.put('/api/cities', cityController.updateCity)
+router.delete('/api/cities', cityController.deleteCity)
 
 // router.get('/api/albums', albumController.getAlbums)
 // router.get('/api/albums/:id', albumController.getAlbum)
