@@ -29,9 +29,9 @@ CREATE TABLE city (
     cityId INT NOT NULL AUTO_INCREMENT,
     cityCountryId INT,
     cityName VARCHAR(50) NOT NULL UNIQUE,
-    cityPopulation VARCHAR(50),
+    cityPopulation INT,
     PRIMARY KEY (cityId),
-    FOREIGN KEY (cityCountryId) REFERENCES city (cityId)
+    FOREIGN KEY (cityCountryId) REFERENCES country(countryId)
 );
 
 INSERT INTO language ( languageName) VALUES ('Spanish'),
