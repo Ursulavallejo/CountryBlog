@@ -12,6 +12,9 @@ router.put('/api/countries', countryController.updateCountry)
 
 router.delete('/api/countries', countryController.deleteCountry)
 
+// SQL endpoint that relate info between all tables
+router.get('/api/country-city-info', countryController.getAllInfoCountryCity)
+
 // only routes without controllers
 
 // router.post('/api/countries', (req, res) => {

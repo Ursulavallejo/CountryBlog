@@ -149,3 +149,25 @@ exports.deleteCountry = async (req, res) => {
     })
   }
 }
+
+exports.getAllInfoCountryCity = async (req, res) => {
+  let sql =
+    // This print all information of INNER JPIN
+    // 'SELECT * FROM typeSubscription INNER JOIN user ON typeSubscription.typeSubscriptionId = user.UsertypeSubscriptionId_FK'
+
+    //SQL Question relate all tables:
+    'SELECT city.cityName AS City, country.countryName AS Country, language.languageName AS Language, currency.currencyName AS Currency, country.countryPopulation AS Population, country.countryFlag AS FlagImage, city.cityImage AS CityImage FROM city JOIN country ON city.cityCountryId = country.countryId JOIN language ON country.countryLanguageId = language.languageId JOIN currency ON country.countryCurrencyId = currency.currencyId;'
+
+  try {
+    await connectionMySQL.query(sql, (error, results, fields) => {
+      if (error) throw error
+      res.json(results)
+    })
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    })
+  }
+}
+
+// INNER JOIN TO add all teh info we need on the DOM

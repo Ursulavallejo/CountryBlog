@@ -1,25 +1,38 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+// import TheWelcome from './components/TheWelcome.vue'
+import CountryList from './components/CountryList.vue'
+import CountryCityInfo from './components/CountryCityInfo.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <!-- <img
+      alt="Vue logo"
+      class="logo"
+      src="./assets/logo.svg"
+      width="125"
+      height="125"
+    /> -->
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
+      <CountryCityInfo />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <!-- <TheWelcome /> -->
+    <!-- <CountryList /> -->
+    <CountryCityInfo />
   </main>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
+  background-color: #a593f5;
+  height: 100vh;
 }
 
 .logo {
@@ -31,7 +44,10 @@ header {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    justify-content: center;
+    /* padding-right: calc(var(--section-gap) / 2); */
+    height: 100vh;
+    width: 50vw;
   }
 
   .logo {
