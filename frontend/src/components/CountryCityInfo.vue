@@ -21,8 +21,8 @@ export default {
     <li :key="countryCity.id" v-for="countryCity in countriesCities">
       <img
         :src="countryCity.CityImage"
-        alt="Country Flag"
-        style="width: 900px; height: auto"
+        alt="City Image"
+        style="width: 500px; height: auto"
       />
       <p>City: {{ countryCity.City }}</p>
       <p>Country:{{ countryCity.Country }}</p>
