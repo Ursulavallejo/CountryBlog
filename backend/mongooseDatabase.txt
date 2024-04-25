@@ -1,0 +1,35 @@
+use comment
+
+show collections
+
+db.comments.insertMany([
+    {
+    userName: 'Anna',
+    homeCountry: 'Sweden',
+    country: 'Germany',
+    title: "Great place",
+    comment: 'Had a great trip!',
+    date: new Date()
+    },
+    {
+    userName: 'Björn',
+    homeCountry: 'Norge',
+    country: 'Spain',
+    title: "Long vacation",
+    comment: 'Bad weather!',
+    date: new Date()
+}
+]);
+
+db.comments.find()
+db.comments.drop()
+
+
+// Insomnia POST
+   {
+    "userName": "Viggo",
+    "homeCountry": "France",
+    "country": "England",
+		"title": "Train vacation",
+    "comment": "Never again!!"
+    }

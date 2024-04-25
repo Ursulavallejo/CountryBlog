@@ -18,9 +18,16 @@ const cityRoutes = require('./routes/cityRoutes')
 const languageRoutes = require('./routes/languageRoutes')
 const currencyRoutes = require('./routes/currencyRoutes')
 
+// Koppling till mongoose
+const commentRoutes = require('./routes/commentRoutes')
+
 app.use(countryRoutes)
 app.use(cityRoutes)
 app.use(languageRoutes)
 app.use(currencyRoutes)
+app.use(commentRoutes)
+
+const connectionMongoDB = require('./connectionMongoDB')
+connectionMongoDB()
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
