@@ -24,7 +24,7 @@ import CountryCityInfo from './components/CountryCityInfo.vue'
   <main>
     <!-- <TheWelcome /> -->
     <!-- <CountryList /> -->
-    <CountryCityInfo />
+    <!-- <CountryCityInfo /> -->
   </main>
 </template>
 
