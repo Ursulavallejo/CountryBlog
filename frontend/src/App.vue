@@ -1,30 +1,47 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-// import TheWelcome from './components/TheWelcome.vue'
-import CountryList from './components/CountryList.vue'
-import CountryCityInfo from './components/CountryCityInfo.vue'
+<script>
+// import CountryList from './components/CountryList.vue'
+// import CountryCityInfo from './components/CountryCityInfo.vue'
+import CountryCityDropOne from './components/CountryCityDropOne.vue'
+import CountryDropMenu from './components/CountryDropMenu.vue'
+
+export default {
+  components: {
+    CountryDropMenu,
+    CountryCityDropOne,
+  },
+  data() {
+    return {
+      // selectedCountryId: 0,
+      selectedCityId: 0,
+    }
+  },
+  methods: {
+    // handleCountrySelected(selectedCountryId) {
+    //   this.selectedCountryId = selectedCountryId
+    // },
+    handleCitySelected(selectedCityId) {
+      this.selectedCityId = selectedCityId
+    },
+  },
+}
 </script>
 
 <template>
   <header>
-    <!-- <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    /> -->
-
     <div class="wrapper">
-      <!-- <HelloWorld msg="You did it!" /> -->
-      <CountryCityInfo />
+      <!-- <CountryCityInfo /> -->
+      <!-- <CountryCityDropOne :selectedCountryId="selectedCountryId" /> -->
+      <CountryCityDropOne :selectedCityId="selectedCityId" />
     </div>
   </header>
 
   <main>
-    <!-- <TheWelcome /> -->
     <!-- <CountryList /> -->
     <!-- <CountryCityInfo /> -->
+    <!-- <CountryDropMenu @countrySelected="handleCountrySelected" /> -->
+    <div class="main-content">
+      <CountryDropMenu @citySelected="handleCitySelected" />
+    </div>
   </main>
 </template>
 
@@ -54,10 +71,22 @@ header {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
+  /* header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+  } */
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 50vw;
+  }
+
+  .main-content {
+    text-align: center; /* Adjust the width as needed */
+    margin: 0 auto;
   }
 }
 </style>

@@ -156,7 +156,7 @@ exports.getAllInfoCountryCity = async (req, res) => {
     // 'SELECT * FROM typeSubscription INNER JOIN user ON typeSubscription.typeSubscriptionId = user.UsertypeSubscriptionId_FK'
 
     //SQL Question relate all tables:
-    'SELECT city.cityName AS City, country.countryName AS Country, language.languageName AS Language, currency.currencyName AS Currency, country.countryPopulation AS Population, country.countryFlag AS FlagImage, city.cityImage AS CityImage FROM city JOIN country ON city.cityCountryId = country.countryId JOIN language ON country.countryLanguageId = language.languageId JOIN currency ON country.countryCurrencyId = currency.currencyId;'
+    'SELECT  city.cityId AS CityId,city.cityName AS City, country.countryName AS Country, country.countryId AS CountryId,  language.languageName AS Language, currency.currencyName AS Currency, country.countryPopulation AS Population, country.countryFlag AS FlagImage, city.cityImage AS CityImage FROM city JOIN country ON city.cityCountryId = country.countryId JOIN language ON country.countryLanguageId = language.languageId JOIN currency ON country.countryCurrencyId = currency.currencyId;'
 
   try {
     await connectionMySQL.query(sql, (error, results, fields) => {
@@ -170,4 +170,67 @@ exports.getAllInfoCountryCity = async (req, res) => {
   }
 }
 
-// INNER JOIN TO add all teh info we need on the DOM
+// by COUNTRY id
+
+// exports.getCountryCityInfoById = async (req, res) => {
+//   const countryId = req.params.id
+
+//   let sql = `
+//     SELECT city.cityName AS City,
+//            country.countryName AS Country,
+//            country.countryId AS CountryId,
+//            language.languageName AS Language,
+//            currency.currencyName AS Currency,
+//            country.countryPopulation AS Population,
+//            country.countryFlag AS FlagImage,
+//            city.cityImage AS CityImage
+//     FROM city
+//     JOIN country ON city.cityCountryId = country.countryId
+//     JOIN language ON country.countryLanguageId = language.languageId
+//     JOIN currency ON country.countryCurrencyId = currency.currencyId
+//     WHERE country.countryId = ?;
+//   `
+
+//   try {
+//     await connectionMySQL.query(sql, [countryId], (error, results, fields) => {
+//       if (error) throw error
+//       res.json(results)
+//     })
+//   } catch (error) {
+//     return res.status(500).json({
+//       error: error.message,
+//     })
+//   }
+// }
+
+// by CITY id
+exports.getCountryCityInfoById = async (req, res) => {
+  const cityId = req.params.id // Change to cityId
+
+  let sql = `
+  SELECT  city.cityId AS CityId,city.cityName AS City,
+           country.countryName AS Country,
+           country.countryId AS CountryId,
+           language.languageName AS Language,
+           currency.currencyName AS Currency,
+           country.countryPopulation AS Population,
+           country.countryFlag AS FlagImage,  -- Adjusted column name
+           city.cityImage AS CityImage
+    FROM city
+    JOIN country ON city.cityCountryId = country.countryId
+    JOIN language ON country.countryLanguageId = language.languageId
+    JOIN currency ON country.countryCurrencyId = currency.currencyId
+    WHERE city.cityId = ?;  -- Changed to cityId
+  `
+
+  try {
+    await connectionMySQL.query(sql, [cityId], (error, results, fields) => {
+      if (error) throw error
+      res.json(results)
+    })
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    })
+  }
+}
