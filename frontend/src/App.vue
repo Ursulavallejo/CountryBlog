@@ -3,6 +3,7 @@ import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
 import CountryList from './components/CountryList.vue'
 import CountryCityInfo from './components/CountryCityInfo.vue'
+import CommentForm from './components/CommentForm.vue'
 </script>
 
 <template>
@@ -22,6 +23,7 @@ import CountryCityInfo from './components/CountryCityInfo.vue'
   </header>
 
   <main>
+    <CommentForm />
     <!-- <TheWelcome /> -->
     <!-- <CountryList /> -->
     <!-- <CountryCityInfo /> -->
