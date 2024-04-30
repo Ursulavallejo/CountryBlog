@@ -49,8 +49,6 @@ export default {
 </script>
 
 <template>
-  <h1><span>Where do </span>you want to go?</h1>
-
   <p>
     <select id="cityDropdown" v-model="selectedCityId">
       <option
@@ -88,14 +86,5 @@ select {
 
 option {
   font-size: 24px;
-}
-span {
-  color: rgb(244, 133, 6);
-  font-weight: 800;
-}
-h1 {
-  font-weight: 600;
-  padding-bottom: 2rem;
-  font-size: 44px;
 }
 </style>
