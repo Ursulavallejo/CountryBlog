@@ -1,4 +1,4 @@
-const connectionMySQL = require('../connectionMySQL')
+const connectionMySQL = require('../connectionMySQL.js')
 
 // Check first if the conncetions works in insomnia before connect them with MYSQL
 
