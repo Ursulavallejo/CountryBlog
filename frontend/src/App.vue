@@ -3,11 +3,13 @@
 // import CountryCityInfo from './components/CountryCityInfo.vue'
 import CountryCityDropOne from './components/CountryCityDropOne.vue'
 import CountryDropMenu from './components/CountryDropMenu.vue'
+import CommentForm from './components/CommentForm.vue'
 
 export default {
   components: {
     CountryDropMenu,
     CountryCityDropOne,
+    CommentForm,
   },
   data() {
     return {
@@ -36,6 +38,8 @@ export default {
   </header>
 
   <main>
+    <!-- <CommentForm /> -->
+    <!-- <TheWelcome /> -->
     <!-- <CountryList /> -->
     <!-- <CountryCityInfo /> -->
     <!-- <CountryDropMenu @countrySelected="handleCountrySelected" /> -->
@@ -76,7 +80,7 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   } */
-  main {
+  /* main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +90,7 @@ header {
 
   .main-content {
     text-align: center; /* Adjust the width as needed */
-    margin: 0 auto;
-  }
+  /* margin: 0 auto; */
+  /* }  */
 }
 </style>
