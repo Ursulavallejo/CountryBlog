@@ -1,25 +1,59 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+// import CountryList from './components/CountryList.vue'
+// import CountryCityInfo from './components/CountryCityInfo.vue'
+import CountryCityDropOne from './components/CountryCityDropOne.vue'
+import CountryDropMenu from './components/CountryDropMenu.vue'
+import CommentForm from './components/CommentForm.vue'
+
+export default {
+  components: {
+    CountryDropMenu,
+    CountryCityDropOne,
+    CommentForm,
+  },
+  data() {
+    return {
+      // selectedCountryId: 0,
+      selectedCityId: 0,
+    }
+  },
+  methods: {
+    // handleCountrySelected(selectedCountryId) {
+    //   this.selectedCountryId = selectedCountryId
+    // },
+    handleCitySelected(selectedCityId) {
+      this.selectedCityId = selectedCityId
+    },
+  },
+}
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <CountryCityInfo /> -->
+      <!-- <CountryCityDropOne :selectedCountryId="selectedCountryId" /> -->
+      <CountryCityDropOne :selectedCityId="selectedCityId" />
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <!-- <CommentForm /> -->
+    <!-- <TheWelcome /> -->
+    <!-- <CountryList /> -->
+    <!-- <CountryCityInfo /> -->
+    <!-- <CountryDropMenu @countrySelected="handleCountrySelected" /> -->
+    <div class="main-content">
+      <CountryDropMenu @citySelected="handleCitySelected" />
+    </div>
   </main>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
+  background-color: #a593f5;
+  height: 100vh;
 }
 
 .logo {
@@ -31,7 +65,9 @@ header {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    justify-content: center;
+    height: 100vh;
+    width: 50vw;
   }
 
   .logo {
@@ -42,6 +78,17 @@ header {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+  }
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 50vw;
+  }
+
+  .main-content {
+    text-align: center;
   }
 }
 </style>

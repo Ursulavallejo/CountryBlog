@@ -1,3 +1,5 @@
+-- Updated version with images
+
 CREATE DATABASE countryBlogLabb3;
 
 DROP DATABASE countryBlogLabb3;
@@ -20,6 +22,7 @@ CREATE TABLE country (
     countryLanguageId INT,
     countryName VARCHAR(50) NOT NULL UNIQUE ,
     countryPopulation INT,
+    countryFlag VARCHAR(100),
     PRIMARY KEY (countryId),
     FOREIGN KEY (countryCurrencyId) REFERENCES currency (currencyId),
     FOREIGN KEY (countryLanguageId) REFERENCES language (languageId)
@@ -30,52 +33,91 @@ CREATE TABLE city (
     cityCountryId INT,
     cityName VARCHAR(50) NOT NULL UNIQUE,
     cityPopulation INT,
+    cityImage VARCHAR(200),
     PRIMARY KEY (cityId),
-    FOREIGN KEY (cityCountryId) REFERENCES city (cityId)
+    FOREIGN KEY (cityCountryId) REFERENCES country(countryId)
 );
 
-INSERT INTO language ( languageName) VALUES ('Spanish'),
-('English'),('French'), ('German'),('Swedish'),('Russian'),('Italian');
-
 INSERT INTO currency (currencyName) VALUES
-('US Dollar'),
-('Euro'),
-('British Pound'),
-('Japanese Yen'),
-('Canadian Dollar'),
-('Australian Dollar'),
-('Swiss Franc'),
-('Chinese Yuan'),
-('Indian Rupee'),
-('Mexican Peso');
+('Euro'),               -- France, Spain, Austria, Italy, Germany
+('Australian Dollar'),  -- Australia
+('US Dollar'),          -- United States
+('Russian Ruble'),      -- Russia
+('Brazilian Real'),     -- Brazil
+('Chinese Yuan'),       -- China
+('Czech Koruna');       -- Czech Republic
 
-INSERT INTO country (countryName, countryCurrencyId, countryLanguageId, countryPopulation) VALUES
-('Spain', 2, 1, 46733038),            -- Spain, Euro, Spanish
-('United States', 1, 2, 331002651),   -- United States, US Dollar, English
-('France', 2, 3, 65273511),           -- France, Euro, French
-('Germany', 4, 4, 83783942),          -- Germany, German
-('Sweden', 5, 5, 10099265),           -- Sweden, Swedish
-('Russia', 6, 6, 145934462),          -- Russia, Russian
-('Italy', 10, 7, 60461826),           -- Italy, Mexican Peso, Italian
-('United Kingdom', 3, 2, 67886011),   -- United Kingdom, British Pound, English
-('Canada', 5, 2, 37742154),           -- Canada, Canadian Dollar, English
-('Australia', 6, 2, 25499884);        -- Australia, Australian Dollar, English
+INSERT INTO language (languageName) VALUES
+('French'),
+('English'),
+('Russian'),
+('Portuguese'),
+('Mandarin'),
+('Spanish'),
+('Czech'),
+('German');
+
+INSERT INTO country (countryCurrencyId, countryLanguageId, countryName, countryPopulation, countryFlag) VALUES
+(1, 1, 'France', 21410000, 'https://cdn.pixabay.com/photo/2013/07/13/14/15/france-162295_1280.png'),        -- Euro (French)
+(2, 2, 'Australia', 25650000, 'https://cdn.pixabay.com/photo/2013/07/13/14/14/australia-162232_1280.png'),     -- Australian Dollar (English)
+(3, 2, 'United States', 331000000, 'https://cdn.pixabay.com/photo/2012/04/10/16/22/united-26177_1280.png'),-- US Dollar (English)
+(4, 3, 'Russia', 146600000, 'https://cdn.pixabay.com/photo/2012/04/10/23/12/russia-26896_1280.png'),       -- Russian Ruble (Russian)
+(5, 4, 'Brazil', 213900000, 'https://cdn.pixabay.com/photo/2014/04/02/11/12/brazil-305531_1280.png'),       -- Brazilian Real (Portuguese)
+(6, 5, 'China', 1439323776, 'https://cdn.pixabay.com/photo/2013/07/13/14/16/china-162389_1280.png'),       -- Chinese Yuan (Mandarin)
+(1, 6, 'Spain', 47000000, 'https://cdn.pixabay.com/photo/2013/07/13/14/17/spain-162428_1280.png'),         -- Euro (Spanish)
+(7, 7, 'Czech Republic', 10700000, 'https://cdn.pixabay.com/photo/2013/07/13/14/15/czech-republic-162276_1280.png'),-- Czech Koruna (Czech)
+(1, 8, 'Austria', 8902600, 'https://cdn.pixabay.com/photo/2013/07/13/14/14/austria-162233_1280.png'),        -- Euro (German)
+(1, 1, 'Italy', 60483973, 'https://cdn.pixabay.com/photo/2013/07/13/14/15/italy-162326_1280.png'),         -- Euro (Italian)
+(1, 1, 'Germany', 83783942, 'https://cdn.pixabay.com/photo/2012/04/12/23/52/germany-31017_1280.png');       -- Euro (German)
+
+-- Inserting cities
+INSERT INTO city (cityCountryId, cityName, cityPopulation, cityImage) VALUES
+(1, 'Paris', 2141000, 'https://i.guim.co.uk/img/media/b9152647cca21cd65733bc68d2f04eb6b9ad207e/0_0_3486_3500/1992.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=813d60eb70a429c75a391d8cade8d88b'),           -- France
+(2, 'Sydney', 5312000, 'https://i.guim.co.uk/img/media/3b385376ee46dcc7829f110bc98cc2df3de79ad5/0_0_3500_3248/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=2756fa9b579245c6cd48903c68d7f493'),          -- Australia
+(3, 'Miami', 467963, 'https://i.guim.co.uk/img/media/63c9e2a4df198c1f09a589e9b7f418ed535358a4/0_0_3500_2825/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=e9566317749815ced13599f8f3010a0b'),            -- United States
+(3, 'San Francisco', 873965, 'https://i.guim.co.uk/img/media/abc9d082d46a840693616c73afa38d5e6eb3217e/0_9_3500_3207/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=49acbaecbce24bd59680b91b5d6a1cd7'),    -- United States
+(4, 'St Petersburg', 5398064, 'https://i.guim.co.uk/img/media/12eac29c3d671f730e55ded6e2169e006c407645/0_0_3500_3500/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=904c242faf60ae3f3930c1868acbe972'),   -- Russia
+(5, 'Sao Paolo', 12106920, 'https://i.guim.co.uk/img/media/117fe00bb5b4988bea43450c65ecd39d8af37e24/0_0_3500_2884/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=e6b53f5f784f7fbe99be045d2d7ca275'),      -- Brazil
+(6, 'Shanghai', 26317104, 'https://i.guim.co.uk/img/media/54df5f712d10de9bb99c3f727966243de392831c/0_0_3500_3215/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=7ed6e034607a9a448cb8129e7715b876'),       -- China
+(7, 'Valencia', 800000, 'https://i.guim.co.uk/img/media/279883ea8653ac79eda338ab3d88142512890153/0_0_3500_3178/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=f89e90f7d36e03eca1b18d95d64ad592'),         -- Spain
+(3, 'Chicago', 2693976, 'https://i.guim.co.uk/img/media/c3f63a6638c9d9bbccacdf7255f8829d5a6e0ad8/0_0_3500_2913/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=761fabe5eabdf6f886ee1f5bf96d922c'),         -- United States
+(8, 'Prague', 1309000, 'https://i.guim.co.uk/img/media/ddfbd7325c1519b245299a49d0d7bdbe4c6fbf74/0_0_3500_3500/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=2130f14860cc08f1cb640b4aa800c156'),          -- Czech Republic
+(9, 'Vienna', 1897491, 'https://i.guim.co.uk/img/media/9e28b0068fefb92990f2cbc4e1a88fa8336c7ce0/0_0_3500_2823/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=738304a50778a4f9ff43b44b3537fb8b'),          -- Austria
+(10, 'Rome', 2872800, 'https://i.guim.co.uk/img/media/97f3bde2c7eb6f50f6abb080272cf26badd62f37/0_0_3500_3014/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=d4e5bf98e51d674ed54aafafe9bc44ca'),           -- Italy
+(11, 'Berlin', 3769495, 'https://i.guim.co.uk/img/media/b96e8db35bba4e30ac86b70742208f11c1b796c3/0_0_3500_2661/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=6e95c83d499399e76dd398b600be0b99');         -- Germany
 
 
-INSERT INTO city (cityCountryId, cityName, cityPopulation) VALUES
-(1, 'Madrid', 3300000),           -- Madrid, Spain
-(2, 'New York City', 8400000),    -- New York City, United States
-(3, 'Paris', 2100000),            -- Paris, France
-(4, 'Berlin', 3700000),           -- Berlin, Germany
-(5, 'Stockholm', 975904),         -- Stockholm, Sweden
-(6, 'Moscow', 12500000),          -- Moscow, Russia
-(7, 'Rome', 2800000),             -- Rome, Italy
-(8, 'London', 8900000),           -- London, United Kingdom
-(9, 'Toronto', 2900000),          -- Toronto, Canada
-(10, 'Sydney', 5300000);          -- Sydney, Australia
-
+-- SQL Questions:
 
 SELECT * FROM language;
 SELECT * FROM currency;
-SELECT * FROM  country;
+SELECT * FROM country;
 SELECT * FROM city;
+
+-- INNER JOIN
+
+
+SELECT
+    city.cityName AS City,
+    country.countryName AS Country,
+    language.languageName AS Language,
+    currency.currencyName AS Currency,
+    country.countryPopulation AS Population,
+    country.countryFlag AS FlagImage,
+    city.cityImage AS CityImage
+FROM
+    city
+JOIN
+    country ON city.cityCountryId = country.countryId
+JOIN
+    language ON country.countryLanguageId = language.languageId
+JOIN
+    currency ON country.countryCurrencyId = currency.currencyId;
+
+
+
+
+DROP TABLE city;
+DROP TABLE country;
+DROP TABLE language;
+DROP TABLE currency;
