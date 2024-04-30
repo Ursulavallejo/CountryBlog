@@ -66,7 +66,6 @@ header {
     display: flex;
     place-items: center;
     justify-content: center;
-    /* padding-right: calc(var(--section-gap) / 2); */
     height: 100vh;
     width: 50vw;
   }
@@ -75,12 +74,12 @@ header {
     margin: 0 2rem 0 0;
   }
 
-  /* header .wrapper {
+  header .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
-  } */
-  /* main {
+  }
+  main {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,8 +88,7 @@ header {
   }
 
   .main-content {
-    text-align: center; /* Adjust the width as needed */
-  /* margin: 0 auto; */
-  /* }  */
+    text-align: center;
+  }
 }
 </style>
