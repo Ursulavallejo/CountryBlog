@@ -14,6 +14,14 @@ router.delete('/api/countries', countryController.deleteCountry)
 
 // SQL endpoint that relate info between all tables
 router.get('/api/country-city-info', countryController.getAllInfoCountryCity)
+router.get(
+  '/api/country-city-info/:id',
+  countryController.getCountryCityInfoById
+)
+router.get(
+  '/api/country-city-info/:id',
+  countryController.getCountryCityInfoById
+)
 
 // only routes without controllers
 
