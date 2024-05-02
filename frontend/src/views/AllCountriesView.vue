@@ -8,23 +8,35 @@ export default {
 }
 </script>
 <template>
-  <header>
-    <div class="wrapper">
-      <CountryCityInfo />
-    </div>
-  </header>
-
   <main>
-    <h1><span>Where do </span>you want to go?</h1>
+    <section class="side-left">
+      <div class="left-container">
+        <CountryCityInfo />
+      </div>
+      <router-link name="default" :to="'/countries'">
+        <input type="button" value="All Countries" />
+      </router-link>
+    </section>
 
-    <div class="main-content"><h1>all countries</h1></div>
-    <router-link name="default" :to="'/comments'">
-      <input type="button" value="View Comments" />
-    </router-link>
-    <router-link name="default" :to="'/'">
-      <input type="button" value="Back Home" />
-    </router-link>
+    <section class="side-right">
+      <div class="right-container">
+        <h1><span>TEXT TO ADD</span></h1>
+        <h1>all countries</h1>
+      </div>
+      <router-link name="default" :to="'/comments'">
+        <input type="button" value="View Comments" />
+      </router-link>
+      <router-link name="default" :to="'/'">
+        <input type="button" value="Back Home" />
+      </router-link>
+    </section>
   </main>
 </template>
+
+<main>
+
+
+
+</main>
 
 <style scoped></style>

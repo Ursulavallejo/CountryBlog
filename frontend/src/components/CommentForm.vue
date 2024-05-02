@@ -66,7 +66,7 @@
 <!-- script -->
 <!-- --------------------------------------------------------------------------------- -->
 <script setup>
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 
 const databaseCountries = ref([]), // hämtade länder från mysql-databasen
   userName = ref(''), // från formulär
@@ -79,6 +79,7 @@ const databaseCountries = ref([]), // hämtade länder från mysql-databasen
 
 generateCountries()
 
+const emit = defineEmits(['updateCommentsEmit'])
 // =================================================================================
 // funktion som hämtar alla länder från mysql-databasen
 // ---------------------------------------------------------------------------------
@@ -98,6 +99,8 @@ function generateCountries() {
 // ---------------------------------------------------------------------------------
 function newComment(event) {
   event.preventDefault()
+
+  console.log('emit funkar')
 
   // Om man vill att användaren ska kunna vara anonym
   // if (userName === '') {
@@ -149,6 +152,7 @@ function newComment(event) {
       comment.value = ''
     })
   }
+  emit('updateCommentsEmit')
 }
 </script>
 

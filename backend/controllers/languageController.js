@@ -15,18 +15,18 @@ exports.getLanguages = async (req, res) => {
 }
 
 exports.createLanguage = async (req, res) => {
-  const {
-    languageId,
-    languageName,
-  } = req.body
+  const { languageId, languageName } = req.body
 
-  let sql =
-    'INSERT INTO language (languageId, languageName) VALUES (?,?,?,?)'
+  let sql = 'INSERT INTO language (languageId, languageName) VALUES (?,?,?,?)'
 
+<<<<<<< HEAD
   let params = [
     languageId,
     languageName,
   ]
+=======
+  let params = [languageId, languageName]
+>>>>>>> e3fdccf430797fa42ec0f07ff075f28376bad871
 
   if (!languageName || languageName.trim().length < 1) {
     return res.status(400).json({
@@ -53,17 +53,18 @@ exports.createLanguage = async (req, res) => {
 }
 
 exports.updateLanguage = async (req, res) => {
-  const {
-    languageId,
-    languageName,
-  } = req.body
+  const { languageId, languageName } = req.body
 
   let sql =
     'UPDATE language SET languageId = ?, languageName = ? WHERE  languageId = ?'
+<<<<<<< HEAD
   let params = [
     languageId,
     languageName,
   ]
+=======
+  let params = [languageId, languageName]
+>>>>>>> e3fdccf430797fa42ec0f07ff075f28376bad871
 
   if (!languageName || languageName.trim().length < 1) {
     return res.status(400).json({
@@ -123,4 +124,7 @@ exports.deleteLanguage = async (req, res) => {
     })
   }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e3fdccf430797fa42ec0f07ff075f28376bad871

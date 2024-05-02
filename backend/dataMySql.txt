@@ -34,6 +34,7 @@ CREATE TABLE city (
     cityName VARCHAR(50) NOT NULL UNIQUE,
     cityPopulation INT,
     cityImage VARCHAR(200),
+    cityAttraction VARCHAR(150),
     PRIMARY KEY (cityId),
     FOREIGN KEY (cityCountryId) REFERENCES country(countryId)
 );
@@ -71,20 +72,20 @@ INSERT INTO country (countryCurrencyId, countryLanguageId, countryName, countryP
 (1, 1, 'Germany', 83783942, 'https://cdn.pixabay.com/photo/2012/04/12/23/52/germany-31017_1280.png');       -- Euro (German)
 
 -- Inserting cities
-INSERT INTO city (cityCountryId, cityName, cityPopulation, cityImage) VALUES
-(1, 'Paris', 2141000, 'https://i.guim.co.uk/img/media/b9152647cca21cd65733bc68d2f04eb6b9ad207e/0_0_3486_3500/1992.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=813d60eb70a429c75a391d8cade8d88b'),           -- France
-(2, 'Sydney', 5312000, 'https://i.guim.co.uk/img/media/3b385376ee46dcc7829f110bc98cc2df3de79ad5/0_0_3500_3248/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=2756fa9b579245c6cd48903c68d7f493'),          -- Australia
-(3, 'Miami', 467963, 'https://i.guim.co.uk/img/media/63c9e2a4df198c1f09a589e9b7f418ed535358a4/0_0_3500_2825/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=e9566317749815ced13599f8f3010a0b'),            -- United States
-(3, 'San Francisco', 873965, 'https://i.guim.co.uk/img/media/abc9d082d46a840693616c73afa38d5e6eb3217e/0_9_3500_3207/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=49acbaecbce24bd59680b91b5d6a1cd7'),    -- United States
-(4, 'St Petersburg', 5398064, 'https://i.guim.co.uk/img/media/12eac29c3d671f730e55ded6e2169e006c407645/0_0_3500_3500/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=904c242faf60ae3f3930c1868acbe972'),   -- Russia
-(5, 'Sao Paolo', 12106920, 'https://i.guim.co.uk/img/media/117fe00bb5b4988bea43450c65ecd39d8af37e24/0_0_3500_2884/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=e6b53f5f784f7fbe99be045d2d7ca275'),      -- Brazil
-(6, 'Shanghai', 26317104, 'https://i.guim.co.uk/img/media/54df5f712d10de9bb99c3f727966243de392831c/0_0_3500_3215/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=7ed6e034607a9a448cb8129e7715b876'),       -- China
-(7, 'Valencia', 800000, 'https://i.guim.co.uk/img/media/279883ea8653ac79eda338ab3d88142512890153/0_0_3500_3178/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=f89e90f7d36e03eca1b18d95d64ad592'),         -- Spain
-(3, 'Chicago', 2693976, 'https://i.guim.co.uk/img/media/c3f63a6638c9d9bbccacdf7255f8829d5a6e0ad8/0_0_3500_2913/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=761fabe5eabdf6f886ee1f5bf96d922c'),         -- United States
-(8, 'Prague', 1309000, 'https://i.guim.co.uk/img/media/ddfbd7325c1519b245299a49d0d7bdbe4c6fbf74/0_0_3500_3500/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=2130f14860cc08f1cb640b4aa800c156'),          -- Czech Republic
-(9, 'Vienna', 1897491, 'https://i.guim.co.uk/img/media/9e28b0068fefb92990f2cbc4e1a88fa8336c7ce0/0_0_3500_2823/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=738304a50778a4f9ff43b44b3537fb8b'),          -- Austria
-(10, 'Rome', 2872800, 'https://i.guim.co.uk/img/media/97f3bde2c7eb6f50f6abb080272cf26badd62f37/0_0_3500_3014/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=d4e5bf98e51d674ed54aafafe9bc44ca'),           -- Italy
-(11, 'Berlin', 3769495, 'https://i.guim.co.uk/img/media/b96e8db35bba4e30ac86b70742208f11c1b796c3/0_0_3500_2661/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=6e95c83d499399e76dd398b600be0b99');         -- Germany
+INSERT INTO city (cityCountryId, cityName, cityPopulation, cityAttraction, cityImage) VALUES
+(1, 'Paris', 2141000, 'Eiffel Tower, Louvre Museum, Notre-Dame Cathedral', 'https://i.guim.co.uk/img/media/b9152647cca21cd65733bc68d2f04eb6b9ad207e/0_0_3486_3500/1992.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=813d60eb70a429c75a391d8cade8d88b'),                                          -- France
+(2, 'Sydney', 5312000, 'Sydney Opera House, Bondi Beach, Sydney Harbour Bridge', 'https://i.guim.co.uk/img/media/3b385376ee46dcc7829f110bc98cc2df3de79ad5/0_0_3500_3248/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=2756fa9b579245c6cd48903c68d7f493'),                                    -- Australia
+(3, 'Miami', 467963, 'South Beach, Art Deco Historic District, Wynwood Walls', 'https://i.guim.co.uk/img/media/63c9e2a4df198c1f09a589e9b7f418ed535358a4/0_0_3500_2825/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=e9566317749815ced13599f8f3010a0b'),                                      -- United States
+(3, 'San Francisco', 873965, 'Golden Gate Bridge, Alcatraz Island, Fisherman\'s Wharf', 'https://i.guim.co.uk/img/media/abc9d082d46a840693616c73afa38d5e6eb3217e/0_9_3500_3207/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=49acbaecbce24bd59680b91b5d6a1cd7'),                             -- United States
+(4, 'St Petersburg', 5398064, 'Hermitage Museum, Peter and Paul Fortress, Church of the Savior on Spilled Blood', 'https://i.guim.co.uk/img/media/12eac29c3d671f730e55ded6e2169e006c407645/0_0_3500_3500/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=904c242faf60ae3f3930c1868acbe972'),   -- Russia
+(5, 'Sao Paolo', 12106920, 'Ibirapuera Park, São Paulo Museum of Art, Sé Cathedral', 'https://i.guim.co.uk/img/media/117fe00bb5b4988bea43450c65ecd39d8af37e24/0_0_3500_2884/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=e6b53f5f784f7fbe99be045d2d7ca275'),                                -- Brazil
+(6, 'Shanghai', 26317104, 'The Bund, Yu Garden, Shanghai Tower', 'https://i.guim.co.uk/img/media/54df5f712d10de9bb99c3f727966243de392831c/0_0_3500_3215/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=7ed6e034607a9a448cb8129e7715b876'),                                                    -- China
+(7, 'Valencia', 800000, 'City of Arts and Sciences, Valencia Cathedral, La Lonja de la Seda', 'https://i.guim.co.uk/img/media/279883ea8653ac79eda338ab3d88142512890153/0_0_3500_3178/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=f89e90f7d36e03eca1b18d95d64ad592'),                       -- Spain
+(3, 'Chicago', 2693976, 'Millennium Park, Art Institute of Chicago, Willis Tower', 'https://i.guim.co.uk/img/media/c3f63a6638c9d9bbccacdf7255f8829d5a6e0ad8/0_0_3500_2913/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=761fabe5eabdf6f886ee1f5bf96d922c'),                                  -- United States
+(8, 'Prague', 1309000, 'Prague Castle, Charles Bridge, Old Town Square', 'https://i.guim.co.uk/img/media/ddfbd7325c1519b245299a49d0d7bdbe4c6fbf74/0_0_3500_3500/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=2130f14860cc08f1cb640b4aa800c156'),                                            -- Czech Republic
+(9, 'Vienna', 1897491, 'Schönbrunn Palace, St. Stephen\'s Cathedral, Belvedere Palace', 'https://i.guim.co.uk/img/media/9e28b0068fefb92990f2cbc4e1a88fa8336c7ce0/0_0_3500_2823/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=738304a50778a4f9ff43b44b3537fb8b'),                             -- Austria
+(10, 'Rome', 2872800, 'Colosseum, Vatican Museums, Trevi Fountain', 'https://i.guim.co.uk/img/media/97f3bde2c7eb6f50f6abb080272cf26badd62f37/0_0_3500_3014/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=d4e5bf98e51d674ed54aafafe9bc44ca'),                                                 -- Italy
+(11, 'Berlin', 3769495, 'Brandenburg Gate, Berlin Wall, Museum Island', 'https://i.guim.co.uk/img/media/b96e8db35bba4e30ac86b70742208f11c1b796c3/0_0_3500_2661/2000.jpg?width=1010&quality=45&auto=format&fit=max&dpr=2&s=6e95c83d499399e76dd398b600be0b99');                                             -- Germany
 
 
 -- SQL Questions:
@@ -116,6 +117,33 @@ JOIN
 
 
 
+SELECT city.cityName AS City,
+       country.countryName AS Country,
+       country.countryId AS CountryId,
+       language.languageName AS Language,
+       currency.currencyName AS Currency,
+       country.countryPopulation AS Population,
+       country.countryFlag AS FlagImage,
+       city.cityImage AS CityImage
+FROM city
+JOIN country ON city.cityCountryId = country.countryId
+JOIN language ON country.countryLanguageId = language.languageId
+JOIN currency ON country.countryCurrencyId = currency.currencyId
+WHERE country.countryId = ?;
+
+   SELECT  city.cityId AS CityId,city.cityName AS City,
+           country.countryName AS Country,
+           country.countryId AS CountryId,
+           language.languageName AS Language,
+           currency.currencyName AS Currency,
+           country.countryPopulation AS Population,
+           country.countryFlag AS FlagImage,  -- Adjusted column name
+           city.cityImage AS CityImage
+    FROM city
+    JOIN country ON city.cityCountryId = country.countryId
+    JOIN language ON country.countryLanguageId = language.languageId
+    JOIN currency ON country.countryCurrencyId = currency.currencyId
+    WHERE city.cityId = ?;
 
 DROP TABLE city;
 DROP TABLE country;

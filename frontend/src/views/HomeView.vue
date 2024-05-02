@@ -25,23 +25,25 @@ export default {
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <CountryCityDropOne :selectedCityId="selectedCityId" />
-    </div>
-    <router-link name="default" :to="'/countries'">
-      <input type="button" value="All Countries" />
-    </router-link>
-  </header>
-
   <main>
-    <div class="main-content">
-      <h1><span>Where do </span>you want to go?</h1>
-      <CountryDropMenu @citySelected="handleCitySelected" />
-    </div>
-    <router-link name="default" :to="'/comments'" class="buttonComment">
-      <input type="button" value="View Comments" />
-    </router-link>
+    <section class="side-left">
+      <div class="left-container">
+        <CountryCityDropOne :selectedCityId="selectedCityId" />
+      </div>
+      <router-link name="default" :to="'/countries'">
+        <input type="button" value="All Countries" />
+      </router-link>
+    </section>
+
+    <section class="side-right">
+      <div class="right-container">
+        <h1><span>Where do </span>you want to go?</h1>
+        <CountryDropMenu @citySelected="handleCitySelected" />
+      </div>
+      <router-link name="default" :to="'/comments'" class="buttonComment">
+        <input type="button" value="View Comments" />
+      </router-link>
+    </section>
   </main>
 </template>
 
