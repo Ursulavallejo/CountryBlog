@@ -36,7 +36,7 @@ export default {
       <p>Language: {{ countryCity.Language }}</p>
       <p>Currency: {{ countryCity.Currency }}</p>
     </li>
-    <<br />
+    <br />
   </ol>
 </template>
 

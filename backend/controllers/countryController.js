@@ -1,4 +1,4 @@
-const connectionMySQL = require('../connectionMySQL')
+const connectionMySQL = require('../connectionMySQL.js')
 
 exports.getCountries = async (req, res) => {
   let sql = 'SELECT * FROM country'
