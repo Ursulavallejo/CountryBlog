@@ -15,19 +15,27 @@ export default {
 }
 </script>
 <template>
-  <header>
-    <div class="wrapper">
-      <AllComments ref="allComments" />
-    </div>
-  </header>
-
   <main>
-    <CommentForm @updateCommentsEmit="updateCommentsEmit" />
+    <section class="side-left">
+      <div class="left-container">
+        <AllComments ref="allComments" />
+      </div>
+      <router-link name="default" :to="'/countries'">
+        <input type="button" value="All Countries" />
+      </router-link>
+    </section>
 
-    <router-link name="default" :to="'/'">
-      <input type="button" value="Back Home" />
-    </router-link>
+    <section class="side-right">
+      <div class="right-container">
+        <CommentForm @updateCommentsEmit="updateCommentsEmit" />
+      </div>
+      <router-link name="default" :to="'/'">
+        <input type="button" value="Back Home" />
+      </router-link>
+    </section>
   </main>
+
+  <main></main>
 </template>
 
 <style scoped></style>
