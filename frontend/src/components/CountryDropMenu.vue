@@ -1,6 +1,5 @@
 <script>
 export default {
-  // emits: ['countrySelected'],
   emits: ['citySelected'],
   created() {
     fetch('http://localhost:3000/api/country-city-info')
@@ -20,25 +19,11 @@ export default {
   data() {
     return {
       countriesCities: [],
-      // selectedCountryId: null,
       selectedCityId: null,
     }
   },
 
-  // IF want to use the search button:
-  // methods: {
-  //   search() {
-  //     // Do whatever you want with the selected country ID
-  //     console.log('Selected country ID:', this.selectedCountryId)
-  //   },
-  // },
   watch: {
-    // selectedCountryId(newValue) {
-    //   // Perform your action here with the selected country ID
-    //   console.log('Selected country ID:', newValue)
-
-    //   this.$emit('countrySelected', newValue)
-    // },
     selectedCityId(newValue) {
       console.log('Selected city ID:', newValue)
       // Emit the selected city ID when it changes
@@ -60,19 +45,6 @@ export default {
       </option>
     </select>
   </p>
-  <!-- CountryID -->
-  <!-- <p>
-    <select id="countryDropdown" v-model="selectedCountryId">
-      <option
-        v-for="countryCity in countriesCities"
-        :value="countryCity.CountryId"
-      >
-        {{ countryCity.City }},
-        {{ countryCity.Country }}
-      </option>
-    </select>
-  </p> -->
-  <!-- <p><button @click="search">Search</button></p> -->
 </template>
 
 <style scoped>

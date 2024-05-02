@@ -1,10 +1,11 @@
 <script>
+import CardInfo from './CardInfo.vue'
+
 export default {
+  components: {
+    CardInfo,
+  },
   props: {
-    // selectedCountryId: {
-    //   type: Number,
-    //   required: true,
-    // },
     selectedCityId: {
       type: Number,
       required: true,
@@ -12,18 +13,10 @@ export default {
   },
   data() {
     return {
-      // countryInfo: null,
       cityInfo: null,
     }
   },
   watch: {
-    // selectedCountryId(newValue) {
-    //   if (newValue !== null) {
-    //     this.fetchCountryInfo(newValue)
-    //   } else {
-    //     this.countryInfo = null
-    //   }
-    // },
     selectedCityId(newValue) {
       if (newValue !== null) {
         this.fetchCityInfo(newValue)
@@ -33,19 +26,6 @@ export default {
     },
   },
   methods: {
-    // fetchCountryInfo(selectedCountryId) {
-    //   // Make an API call using the selected country ID to fetch its information
-    //   fetch(`http://localhost:3000/api/country-city-info/${selectedCountryId}`)
-    //     .then((response) => response.json())
-    //     .then((countryInfo) => {
-    //       this.countryInfo = countryInfo
-    //       console.log(selectedCountryId)
-    //       console.log(countryInfo[0])
-    //     })
-    //     .catch((error) => {
-    //       console.error('Error fetching country info:', error)
-    //     })
-    // },
     fetchCityInfo(selectedCityId) {
       fetch(`http://localhost:3000/api/country-city-info/${selectedCityId}`)
         .then((response) => response.json())
@@ -62,46 +42,22 @@ export default {
 
 <template>
   <div v-if="cityInfo">
-    <img
-      :src="cityInfo[0].CityImage"
-      alt="City Image"
-      style="width: 700px; height: auto"
-    />
-    <h1>{{ cityInfo[0].City }}, {{ cityInfo[0].Country }}</h1>
-    <img
-      :src="cityInfo[0].FlagImage"
-      alt="Country Flag"
-      style="width: 100px; height: auto"
-    />
-
-    <p>Population: {{ cityInfo[0].Population }}</p>
-    <p>Language: {{ cityInfo[0].Language }}</p>
-    <p>Currency: {{ cityInfo[0].Currency }}</p>
+    <CardInfo
+      :key="cityInfo[0].CityId"
+      :city-image="cityInfo[0].CityImage"
+      :city="cityInfo[0].City"
+      :country="cityInfo[0].Country"
+      :language="cityInfo[0].Language"
+      :flag-image="cityInfo[0].FlagImage"
+      :population="cityInfo[0].Population"
+      :currency="cityInfo[0].Currency"
+      :city-attractions="cityInfo[0].CityAttraction"
+    >
+    </CardInfo>
   </div>
   <div v-else>
     <p>Loading...</p>
   </div>
-  <!-- <div  v-if="countryInfo">
-    <img
-      :src="countryInfo[0].CityImage"
-      alt="City Image"
-      style="width: 500px; height: auto"
-    />
-    <h1>{{ countryInfo[0].City }}, {{ countryInfo[0].Country }}</h1>
-    <img
-      :src="countryInfo[0].FlagImage"
-      alt="Country Flag"
-      style="width: 100px; height: auto"
-    />
-
-    <p>Population: {{ countryInfo[0].Population }}</p>
-    <p>Language: {{ countryInfo[0].Language }}</p>
-    <p>Currency: {{ countryInfo[0].Currency }}</p>
-
-  </div>
-  <div v-else>
-    <p>Loading...</p>
-  </div> -->
 </template>
 
 <style scoped>

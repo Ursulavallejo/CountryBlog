@@ -100,13 +100,6 @@ function generateCountries() {
 function newComment(event) {
   event.preventDefault()
 
-  console.log('emit funkar')
-
-  // Om man vill att användaren ska kunna vara anonym
-  // if (userName === '') {
-  //   userName.value = 'Anonymous'
-  // }
-
   // -------------------------------------------------------------------------------
   // if-sats för att hantera felmeddelanden, else för att göra post-anrop när allt är ok
   if (

@@ -13,9 +13,6 @@ export default {
       <div class="left-container">
         <CountryCityInfo />
       </div>
-      <router-link name="default" :to="'/countries'">
-        <input type="button" value="All Countries" />
-      </router-link>
     </section>
 
     <section class="side-right">

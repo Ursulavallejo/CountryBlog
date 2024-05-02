@@ -9,14 +9,10 @@ export default {
   },
   data() {
     return {
-      // selectedCountryId: 0,
       selectedCityId: 0,
     }
   },
   methods: {
-    // handleCountrySelected(selectedCountryId) {
-    //   this.selectedCountryId = selectedCountryId
-    // },
     handleCitySelected(selectedCityId) {
       this.selectedCityId = selectedCityId
     },
@@ -57,9 +53,7 @@ h1 {
   padding-bottom: 2rem;
   font-size: 44px;
 }
-/* .buttonComment {
 
-} */
 .main-content {
   flex-grow: 1;
 }
