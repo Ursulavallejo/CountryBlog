@@ -35,15 +35,13 @@ export default {
           <CommentForm @updateCommentsEmit="updateCommentsEmit" />
         </div>
       </div>
-      <div class="button">
+      <div class="button buttonDot">
         <router-link name="default" :to="'/'">
           <input type="button" value="Back Home" />
         </router-link>
       </div>
     </section>
   </main>
-
-  <main></main>
 </template>
 
 <style scoped></style>

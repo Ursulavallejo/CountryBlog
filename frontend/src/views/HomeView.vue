@@ -48,7 +48,7 @@ export default {
           <CountryDropMenu @citySelected="handleCitySelected" />
         </div>
       </div>
-      <div class="button">
+      <div class="button buttonDot">
         <router-link name="default" :to="'/comments'" class="buttonComment">
           <input type="button" value="View Comments" />
         </router-link>

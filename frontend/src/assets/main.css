@@ -60,10 +60,8 @@ main {
   display: flex;
   flex-direction: column;
   width: 50vw;
-
   text-align: center;
   justify-content: center;
-
   align-items: center;
 }
 .side-left {
@@ -121,4 +119,19 @@ input[type='button'] {
   a:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
+}
+
+/* DOTS Background */
+/* .buttonDot {
+  background-image: url(../assets/img/dots.png);
+  background-repeat: no-repeat;
+} */
+
+.side-right,
+.side-left {
+  background-image: url(../assets/img/dotsBackground.png);
+  background-repeat: no-repeat;
+}
+.side-right {
+  background-position: bottom;
 }

@@ -25,7 +25,7 @@ export default {
           </h1>
         </div>
       </div>
-      <div class="button align-buttons">
+      <div class="button align-buttons buttonDot">
         <router-link name="default" :to="'/comments'">
           <input type="button" value="View Comments" />
         </router-link>
