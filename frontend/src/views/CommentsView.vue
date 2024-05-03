@@ -44,4 +44,12 @@ export default {
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.side-right {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  /* height: 100vh; */
+  overflow-y: auto;
+}
+</style>

@@ -89,6 +89,7 @@ main {
   margin-top: auto;
   padding-bottom: 3.5rem;
   min-width: 50vw;
+  padding-bottom: 7rem;
 }
 .align-buttons {
   display: flex;
@@ -115,17 +116,7 @@ input[type='button'] {
   width: 190px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
 /* DOTS Background */
-/* .buttonDot {
-  background-image: url(../assets/img/dots.png);
-  background-repeat: no-repeat;
-} */
 
 .side-right,
 .side-left {

@@ -53,12 +53,11 @@ h1 {
 img {
   margin-left: 12rem;
 }
-
 .side-right {
   flex-shrink: 0;
   position: sticky;
   top: 0;
-  height: 95vh;
+  /* height: 95vh; */
   overflow-y: auto;
 }
 </style>
