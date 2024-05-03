@@ -23,38 +23,77 @@ export default {
 <template>
   <main>
     <section class="side-left">
-      <div class="left-container">
-        <CountryCityDropOne :selectedCityId="selectedCityId" />
+      <div class="left-content">
+        <div class="left-container">
+          <CountryCityDropOne :selectedCityId="selectedCityId" />
+        </div>
       </div>
-      <router-link name="default" :to="'/countries'">
-        <input type="button" value="All Countries" />
-      </router-link>
+      <div class="button">
+        <router-link name="default" :to="'/countries'">
+          <input type="button" value="All Countries" />
+        </router-link>
+      </div>
     </section>
 
     <section class="side-right">
-      <div class="right-container">
-        <h1><span>Where do </span>you want to go?</h1>
-        <CountryDropMenu @citySelected="handleCitySelected" />
+      <div class="right-content">
+        <div class="right-container">
+          <img src="../assets/img/LogoPlane.svg" alt="LogoPlane" />
+          <h1>
+            <span class="underline"
+              ><span class="first-letter">W</span>here do </span
+            >you want to go ?
+          </h1>
+
+          <CountryDropMenu @citySelected="handleCitySelected" />
+        </div>
       </div>
-      <router-link name="default" :to="'/comments'" class="buttonComment">
-        <input type="button" value="View Comments" />
-      </router-link>
+      <div class="button">
+        <router-link name="default" :to="'/comments'" class="buttonComment">
+          <input type="button" value="View Comments" />
+        </router-link>
+      </div>
     </section>
   </main>
 </template>
 
 <style scoped>
+span.first-letter {
+  font-size: 70px;
+  vertical-align: center;
+}
 span {
   color: rgb(244, 133, 6);
-  font-weight: 800;
 }
 h1 {
-  font-weight: 600;
   padding-bottom: 2rem;
   font-size: 44px;
 }
 
-.main-content {
-  flex-grow: 1;
+img {
+  margin-left: 12rem;
+}
+
+.underline {
+  position: relative;
+}
+
+.underline::before,
+.underline::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: rgb(244, 133, 6);
+}
+
+.underline::before {
+  width: 40%;
+}
+
+.underline::after {
+  width: 110%;
 }
 </style>
