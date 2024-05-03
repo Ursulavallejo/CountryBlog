@@ -1,3 +1,36 @@
+/* PAGES TITLES */
+@font-face {
+  font-family: 'Playfair';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf')
+    format('truetype');
+}
+
+/* CONTENT cards */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+}
+
+/* Buttons / form*/
+@font-face {
+  font-family: 'Roboto_Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf')
+    format('truetype');
+}
+
+:root {
+  --font-cards: 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-buttons-form: 'Roboto_Slab', system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  --font-main: 'Playfair', Georgia, serif;
+}
+
 * {
   box-sizing: content-box;
 }
@@ -5,7 +38,6 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  font-weight: normal;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-left: 0;
@@ -16,6 +48,7 @@ body {
   color: #4a379b;
   width: 100%;
   margin: 0;
+  font-family: var(--font-main);
 }
 
 main {
@@ -40,7 +73,17 @@ main {
 }
 .side-right {
   height: 100vh;
+
   /* position: absolute; */
+}
+
+.card {
+  font-family: var(--font-cards);
+}
+
+form,
+#sendButton {
+  font-family: var(--font-buttons-form);
 }
 
 input[type='button'] {
@@ -50,6 +93,7 @@ input[type='button'] {
   border-radius: 10px;
   padding: 1rem;
   background-color: purple;
+  font-family: var(--font-buttons-form);
 }
 
 @media (hover: hover) {

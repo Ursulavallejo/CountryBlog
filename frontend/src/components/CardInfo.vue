@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <div class="card-info">
+  <div class="card-info card">
     <img :src="cityImage" alt="City Image" style="width: 500px; height: auto" />
     <p>{{ city }}, {{ country }}</p>
 

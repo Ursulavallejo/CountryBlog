@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="review">
+  <div class="review card">
     <h3>{{ country }}</h3>
     <p>
       <i>{{ formatDate(date) }}</i>
