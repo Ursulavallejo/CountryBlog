@@ -158,25 +158,25 @@ function newComment(event) {
 }
 
 form {
-  background-color: rgba(63, 147, 36, 0.472);
   color: black;
   display: flex;
-  justify-content: center;
   padding: 2rem;
-  width: 50vw;
+  width: 40vw;
 }
 
 fieldset {
   border: none;
   padding: 1em;
   text-align: center;
-  width: 80%;
+  width: 100%;
 }
 
 label {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0.25rem;
+  margin: 0.5rem;
 }
 
 legend {
@@ -188,10 +188,12 @@ legend {
 input,
 select,
 textarea {
-  border: 2px white solid;
-  border-radius: 4px;
+  border: 2px rgb(160, 153, 153) solid;
+  border-radius: 10px;
   flex-grow: 1;
-  max-width: 75%;
+  margin-left: 1rem;
+  max-width: 60%;
+  padding: 0.5rem;
 }
 
 .error {
@@ -203,9 +205,12 @@ textarea {
 }
 
 #sendButton {
+  border: 2px #800080 solid;
+  background-color: white;
+  color: #800080;
+  font-size: 1rem;
   margin-top: 1.5rem;
-  padding: 2px;
-  text-align: center;
+  padding: 0.5rem;
   width: 15%;
 }
 </style>

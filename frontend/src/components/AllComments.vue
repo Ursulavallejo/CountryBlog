@@ -20,7 +20,19 @@ export default {
         .then((response) => response.json())
         .then((comments) => {
           this.comments = comments
-          console.log(comments)
+
+          // fetch för att hämta landets flagga och sätta ihop dem med rätt kommentar
+          fetch('http://localhost:3000/api/countries')
+            .then((response) => response.json())
+            .then((countries) => {
+              for (let i = 0; i < this.comments.length; i++) {
+                for (let j = 0; j < countries.length; j++) {
+                  if (this.comments[i].country === countries[j].countryName) {
+                    this.comments[i].flagImage = countries[j].countryFlag
+                  }
+                }
+              }
+            })
         })
     },
   },
@@ -39,6 +51,7 @@ export default {
         :comment="review.comment"
         :userName="review.userName"
         :homeCountry="review.homeCountry"
+        :flagImage="review.flagImage"
       ></CardComments>
     </div>
   </div>
@@ -52,6 +65,7 @@ export default {
 
 .reviews {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 

@@ -29,7 +29,7 @@ db.comments.drop()
    {
     "userName": "Viggo",
     "homeCountry": "France",
-    "country": "England",
+    "country": "Italy",
 		"title": "Train vacation",
     "comment": "Never again!!"
     }
