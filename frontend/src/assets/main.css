@@ -63,6 +63,7 @@ main {
   text-align: center;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 .side-left {
   line-height: 1.5;
@@ -90,6 +91,7 @@ main {
   padding-bottom: 3.5rem;
   min-width: 50vw;
   padding-bottom: 7rem;
+  z-index: 1;
 }
 .align-buttons {
   display: flex;
@@ -114,6 +116,7 @@ input[type='button'] {
   background-color: #800080;
   font-family: var(--font-buttons-form);
   width: 190px;
+  z-index: 1;
 }
 
 /* DOTS Background */
