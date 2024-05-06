@@ -19,7 +19,7 @@ export default {
       fetch('http://localhost:3000/api/comment')
         .then((response) => response.json())
         .then((comments) => {
-          this.comments = comments
+          this.comments = comments.reverse()
 
           // fetch för att hämta landets flagga och sätta ihop dem med rätt kommentar
           fetch('http://localhost:3000/api/countries')
