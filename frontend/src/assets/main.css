@@ -72,8 +72,6 @@ main {
 }
 .side-right {
   height: 100vh;
-
-  /* position: absolute; */
 }
 .right-content,
 .left-content {
@@ -89,7 +87,7 @@ main {
   /* flex-grow: 1; */
   margin-top: auto;
   /* padding-bottom: 3.5rem; */
-  min-width: 50vw;
+  min-width: 40vw;
   padding-bottom: 7rem;
   z-index: 1;
 }
@@ -115,7 +113,7 @@ input[type='button'] {
   padding: 0.5rem;
   background-color: #800080;
   font-family: var(--font-buttons-form);
-  width: 160px;
+  width: 150px;
   z-index: 1;
 }
 

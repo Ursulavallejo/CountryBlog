@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 span.first-letter {
-  font-size: 70px;
+  font-size: 60px;
   vertical-align: center;
 }
 span {
@@ -47,7 +47,7 @@ span {
 }
 h1 {
   padding-bottom: 2rem;
-  font-size: 44px;
+  font-size: 34px;
 }
 
 img {

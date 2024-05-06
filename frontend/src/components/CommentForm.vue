@@ -153,15 +153,11 @@ function newComment(event) {
 <!-- style -->
 <!-- --------------------------------------------------------------------------------- -->
 <style scoped>
-* {
-  box-sizing: border-box;
-}
-
 form {
   color: black;
   display: flex;
   padding: 2rem;
-  width: 40vw;
+  width: 42vw;
 }
 
 fieldset {
