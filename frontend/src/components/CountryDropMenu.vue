@@ -50,13 +50,13 @@ export default {
 <style scoped>
 select {
   border: 2px solid purple;
-  font-size: 24px;
+  font-size: 16px;
   color: purple;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 15px;
+  padding: 0.6rem;
 }
 
 option {
-  font-size: 24px;
+  font-size: 14px;
 }
 </style>

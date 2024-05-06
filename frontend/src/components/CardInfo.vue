@@ -15,7 +15,7 @@ export default {
 
 <template>
   <div class="card-info card">
-    <img :src="cityImage" alt="City Image" style="width: 500px; height: auto" />
+    <img :src="cityImage" alt="City Image" style="width: 300px; height: auto" />
     <p>{{ city }}, {{ country }}</p>
 
     <img
@@ -34,5 +34,6 @@ export default {
 .card-info {
   border-radius: 10px;
   border: 2px solid purple;
+  max-width: 300px;
 }
 </style>

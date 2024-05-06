@@ -59,19 +59,21 @@ export default {
 
 <style scoped>
 span.first-letter {
-  font-size: 70px;
+  font-size: 45px;
   vertical-align: center;
 }
 span {
   color: rgb(244, 133, 6);
 }
 h1 {
-  padding-bottom: 2rem;
-  font-size: 44px;
+  padding-bottom: 1.5rem;
+  font-size: 30px;
 }
 
 img {
-  margin-left: 12rem;
+  margin-top: 1.6rem;
+  /* margin-left: 13rem; */
+  width: 120px;
 }
 
 .underline {
@@ -95,5 +97,10 @@ img {
 
 .underline::after {
   width: 110%;
+}
+.side-right {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
 }
 </style>

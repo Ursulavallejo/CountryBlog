@@ -88,7 +88,7 @@ main {
    */
   /* flex-grow: 1; */
   margin-top: auto;
-  padding-bottom: 3.5rem;
+  /* padding-bottom: 3.5rem; */
   min-width: 50vw;
   padding-bottom: 7rem;
   z-index: 1;
@@ -109,14 +109,20 @@ form,
 
 input[type='button'] {
   border: 2px solid #800080;
-  font-size: 24px;
+  font-size: 16px;
   color: white;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 20px;
+  padding: 0.5rem;
   background-color: #800080;
   font-family: var(--font-buttons-form);
-  width: 190px;
+  width: 160px;
   z-index: 1;
+}
+
+input[type='button']:hover {
+  color: #800080;
+  background-color: white;
+  cursor: pointer;
 }
 
 /* DOTS Background */
@@ -125,6 +131,7 @@ input[type='button'] {
 .side-left {
   background-image: url(../assets/img/dotsBackground.png);
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 .side-right {
   background-position: bottom;
