@@ -66,7 +66,7 @@
 <!-- script -->
 <!-- --------------------------------------------------------------------------------- -->
 <script setup>
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 
 const databaseCountries = ref([]), // hämtade länder från mysql-databasen
   userName = ref(''), // från formulär
