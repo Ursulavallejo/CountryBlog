@@ -45,12 +45,12 @@ span.first-letter {
 span {
   color: rgb(244, 133, 6);
 }
-h1 {
+.right-container h1 {
   padding-bottom: 2rem;
   font-size: 34px;
 }
 
-img {
+.right-container img {
   margin-left: 12rem;
 }
 .side-right {

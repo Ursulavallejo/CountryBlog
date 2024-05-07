@@ -65,12 +65,12 @@ span.first-letter {
 span {
   color: rgb(244, 133, 6);
 }
-h1 {
+.side-right h1 {
   padding-bottom: 1.5rem;
   font-size: 30px;
 }
 
-img {
+.side-right img {
   margin-top: 1.6rem;
   /* margin-left: 13rem; */
   width: 120px;
