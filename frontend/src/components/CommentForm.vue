@@ -145,7 +145,9 @@ function newComment(event) {
       comment.value = ''
     })
   }
+
   emit('updateCommentsEmit')
+  console.log('update works?')
 }
 </script>
 

@@ -2,7 +2,7 @@ const commentModel = require('../models/commentModel')
 
 exports.getComments = async (req, res) => {
   try {
-    const allComments = await commentModel.find()
+    const allComments = await commentModel.find().lean()
     return res.status(200).json(allComments)
   } catch (error) {
     return res.status(500).json({

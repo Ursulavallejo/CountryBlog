@@ -15,6 +15,32 @@ export default {
   },
 
   methods: {
+    // fetchComments() {
+    //   Promise.all([
+    //     fetch('http://localhost:3000/api/comment').then((response) =>
+    //       response.json()
+    //     ),
+    //     (async () => {
+    //       const response = await fetch('http://localhost:3000/api/countries')
+    //       return await response.json()
+    //     })(),
+    //   ])
+    //     .then(([comments, countries]) => {
+    //       // Process comments and countries data here
+    //       this.comments = comments.reverse()
+    //       for (let i = 0; i < this.comments.length; i++) {
+    //         for (let j = 0; j < countries.length; j++) {
+    //           if (this.comments[i].country === countries[j].countryName) {
+    //             this.comments[i].flagImage = countries[j].countryFlag
+    //             break // Break the inner loop once match is found
+    //           }
+    //         }
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.error('Error fetching data:', error)
+    //     })
+    // },
     fetchComments() {
       fetch('http://localhost:3000/api/comment')
         .then((response) => response.json())
