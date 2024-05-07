@@ -2,4 +2,4 @@
 
 ## IT Högskola
 
-[<img src="./backend/ER-diagram.png" width="550"/>](ER Diagram)
+[<img src="./backend/ER-diagram.png" width="550"/>](ER-Diagram)
