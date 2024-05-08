@@ -93,6 +93,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  line-height: 1.3;
 }
 
 h3 {
