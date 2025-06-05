@@ -125,9 +125,6 @@ Make sure you have the following installed:
 
 ---
 
-¿Quieres que adapte esto si usas Docker o PM2, o necesitas que te ayude a recordar si el backend usaba `nodemon` o algo más?
 
-
----
 
 ### 📄 [Detailed Information of the Project](Detail_Info.md)
