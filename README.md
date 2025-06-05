@@ -81,10 +81,7 @@ Make sure you have the following installed:
    * Create a `.env` file inside `/backend` (if needed) and add your MySQL credentials:
 
      ```
-     DB_HOST=localhost
-     DB_USER=root
-     DB_PASSWORD=yourpassword
-     DB_NAME=travel_blog
+      nodemon app.js
      ```
    * Run SQL setup script (if available) to create and seed your database.
 
