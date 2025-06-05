@@ -20,17 +20,17 @@ The project includes structured endpoints, reusable components, and a responsive
 
 Main features implemented:
 
-Country-city relationship with JOINs (SQL)
-
-City-specific views fetched by ID
-
-Comment system stored in MongoDB
-
-Flags dynamically matched to countries
-
-Suggestions for scalability and admin features
+- Country-city relationship with JOINs (SQL)
+- City-specific views fetched by ID
+- Comment system stored in MongoDB
+- Flags dynamically matched to countries
+- Suggestions for scalability and admin features
 
 ✨ Developed collaboratively in a team, with individual contributions clearly defined.
+
+
+https://github.com/user-attachments/assets/202d7634-e3b2-45ca-9b85-d01e05f9be21
+
 
 ---
 
