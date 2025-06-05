@@ -1,7 +1,7 @@
 #### May 2024
 
 > The development team behind 🌍 COUNTRY BLOG:
-> Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
+> Malin Johansson, Vigan Kumnova, Maja Lennevi and Ursula Vallejo.
 
 **Project Summary**
 
