@@ -43,9 +43,6 @@ https://github.com/user-attachments/assets/202d7634-e3b2-45ca-9b85-d01e05f9be21
 
 ---
 
-¡Claro que sí! Aquí tienes una sección que puedes pegar en tu `README.md` como guía para iniciar el proyecto localmente, adaptada para tu stack:
-
----
 
 ## 🚀 How to Run the Project Locally
 
