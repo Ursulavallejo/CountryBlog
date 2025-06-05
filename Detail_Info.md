@@ -1,6 +1,6 @@
 #### May 2024
 
-#### The development team behind Travel Blog: Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
+#### The development team behind Country Blog: Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
 
 ##### IT Högskola
 
