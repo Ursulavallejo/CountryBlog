@@ -43,29 +43,96 @@ https://github.com/user-attachments/assets/202d7634-e3b2-45ca-9b85-d01e05f9be21
 
 ---
 
-### 🔧 Installation and Usage
+¡Claro que sí! Aquí tienes una sección que puedes pegar en tu `README.md` como guía para iniciar el proyecto localmente, adaptada para tu stack:
 
-1.  **Clone or download** the project folder
+---
 
-    ```bash
-    git clone <your-repo-url>
-    cd <project-folder>
-    ```
+## 🚀 How to Run the Project Locally
 
-2.  **Install Dependencies**
+### 🛠️ Requirements
 
-    ```bash
-    npm install
-    ```
+Make sure you have the following installed:
 
-3.  **Run in Development Mode**
+* [Node.js](https://nodejs.org/)
+* [MySQL](https://www.mysql.com/)
+* [MongoDB](https://www.mongodb.com/) (local or Atlas)
+* [Vue CLI](https://cli.vuejs.org/) (if using `vue ui` or global commands)
 
-    ```bash
-    npm run dev
-    ```
+---
 
-    - The app will be available at `http://localhost:5173` (or the port shown by Vite).
-    - Enter your name on load and start exploring the app.
+### 📦 Backend Setup
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/Ursulavallejo/CountryBlog.git
+   cd CountryBlog
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   cd backend
+   npm install
+   ```
+
+3. **Configure MySQL connection**
+
+   * Create a `.env` file inside `/backend` (if needed) and add your MySQL credentials:
+
+     ```
+     DB_HOST=localhost
+     DB_USER=root
+     DB_PASSWORD=yourpassword
+     DB_NAME=travel_blog
+     ```
+   * Run SQL setup script (if available) to create and seed your database.
+
+4. **Run MongoDB** (make sure it’s running on localhost:27017 or update config).
+
+5. **Start backend server**
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+### 💻 Frontend Setup
+
+1. Open a new terminal window:
+
+   ```bash
+   cd frontend
+   npm install
+   ```
+
+2. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+3. Navigate to:
+
+   ```
+   http://localhost:5173
+   ```
+
+---
+
+### 🌐 Available Endpoints
+
+* `GET /api/country-city-info`
+* `GET /api/country-city-info/:id`
+* `GET /api/comment`
+* `GET /api/countries`
+* `POST /api/comment` (if implemented)
+
+---
+
+¿Quieres que adapte esto si usas Docker o PM2, o necesitas que te ayude a recordar si el backend usaba `nodemon` o algo más?
+
 
 ---
 
