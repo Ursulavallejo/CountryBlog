@@ -8,7 +8,7 @@
 
 ### Link to Travel Blog Project - Git:
 
-## [GitHub Travel Blog](https://github.com/Ursulavallejo/CountryBlog)
+## [GitHub Country Blog](https://github.com/Ursulavallejo/CountryBlog)
 
 ## ER Diagram:
 
