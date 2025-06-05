@@ -127,7 +127,7 @@ Make sure you have the following installed:
 * `GET /api/country-city-info/:id`
 * `GET /api/comment`
 * `GET /api/countries`
-* `POST /api/comment` (if implemented)
+* `POST /api/comment` 
 
 ---
 
