@@ -1,275 +1,71 @@
-# TRAVEL BLOG : LABB3 Backendprogrammering
+#### May 2024
 
-## IT Högskola
+#### The development team behind 🌍 TRAVEL BLOG: Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
 
-### ER DIAGRAM:
+**Project Summary**
 
-[<img src="./backend/ER-diagram.png" width="550"/>](ER-Diagram)
+Travel Blog is a full-stack application developed as part of the Backend Programming (LABB 3) course at IT-Högskolan. The goal of the project was to create an interactive blog where users can explore countries and cities, view detailed travel information, and read or submit comments based on their experiences.
 
-### DATABASEN:
+The backend is built with MySQL and MongoDB (via Mongoose) to manage structured data (countries, cities, languages, currencies) and user-generated content (comments). The frontend, built with Vue.js, allows users to:
 
-- My SQL:
+🔎 Browse cities and filter by country
 
-```javascript
-CREATE DATABASE countryBlogLabb3;
+💬 Read and post comments
 
-DROP DATABASE countryBlogLabb3;
+🌐 View extended data such as language, currency, population, attractions, and flags
 
+🎯 Fetch dynamic data via RESTful API endpoints (GET by ID, full joins, etc.)
 
-CREATE TABLE currency (
-    currencyId INT NOT NULL AUTO_INCREMENT,
-    currencyName VARCHAR(50) NOT NULL UNIQUE,
-    PRIMARY KEY  (currencyId)
-);
+The project includes structured endpoints, reusable components, and a responsive UI based on custom wireframes created in Figma.
 
-CREATE TABLE language (
-    languageId INT NOT NULL AUTO_INCREMENT,
-    languageName VARCHAR(50) NOT NULL UNIQUE,
-    PRIMARY KEY (languageId)
-);
+Main features implemented:
 
-CREATE TABLE country (
-    countryId INT NOT NULL AUTO_INCREMENT,
-    countryCurrencyId INT,
-    countryLanguageId INT,
-    countryName VARCHAR(50) NOT NULL UNIQUE ,
-    countryPopulation INT,
-    countryFlag VARCHAR(100),
-    PRIMARY KEY (countryId),
-    FOREIGN KEY (countryCurrencyId) REFERENCES currency (currencyId),
-    FOREIGN KEY (countryLanguageId) REFERENCES language (languageId)
-);
+Country-city relationship with JOINs (SQL)
 
-CREATE TABLE city (
-    cityId INT NOT NULL AUTO_INCREMENT,
-    cityCountryId INT,
-    cityName VARCHAR(50) NOT NULL UNIQUE,
-    cityPopulation INT,
-    cityImage VARCHAR(200),
-    cityAttraction VARCHAR(150),
-    PRIMARY KEY (cityId),
-    FOREIGN KEY (cityCountryId) REFERENCES country(countryId)
-);
-```
+City-specific views fetched by ID
 
-- Mongoose:
+Comment system stored in MongoDB
 
-```javascript
-use comment
+Flags dynamically matched to countries
 
-show collections
+Suggestions for scalability and admin features
 
-db.comments.insertMany([
-    {
-    userName: 'Anna',
-    homeCountry: 'Sweden',
-    country: 'Germany',
-    title: "Great place",
-    comment: 'Had a great trip!',
-    date: new Date()
-    },
-    {
-    userName: 'Björn',
-    homeCountry: 'Norge',
-    country: 'Spain',
-    title: "Long vacation",
-    comment: 'Bad weather!',
-    date: new Date()
-}
-]);
-```
+✨ Developed collaboratively in a team, with individual contributions clearly defined.
 
-### BACKEND:
+---
 
-- Country Routes:
+### General view:
 
-```javascript
-const countryController = require('../controllers/countryController')
+[<img src="documentation/Home.png" width="550"/>](WireframeHome)
+[<img src="documentation/all_comments.png" width="550"/>](WireframeAllComments)
+[<img src="documentation/One_Country_comments.png" width="550"/>](WireframeOne_Country_comments)
 
-router.get('/api/countries', countryController.getCountries)
+---
 
-router.get('/api/countries/:id', countryController.getCountry)
+### 🔧 Installation and Usage
 
-router.post('/api/countries', countryController.createCountry)
+1.  **Clone or download** the project folder
 
-router.put('/api/countries', countryController.updateCountry)
+    ```bash
+    git clone <your-repo-url>
+    cd <project-folder>
+    ```
 
-router.delete('/api/countries', countryController.deleteCountry)
-```
+2.  **Install Dependencies**
 
-- Country Controller:
+    ```bash
+    npm install
+    ```
 
-```javascript
-const connectionMySQL = require('../connectionMySQL.js')
+3.  **Run in Development Mode**
 
-exports.getCountries = async (req, res) => {
-  let sql = 'SELECT * FROM country'
-  try {
-    await connectionMySQL.query(sql, (error, results, fields) => {
-      if (error) throw error
-      res.json(results)
-    })
-  } catch (error) {
-    return res.status(500).json({
-      error: error.message,
-    })
-  }
-}
+    ```bash
+    npm run dev
+    ```
 
-exports.getCountry = async (req, res) => {
-  const { id } = req.params
+    - The app will be available at `http://localhost:5173` (or the port shown by Vite).
+    - Enter your name on load and start exploring the app.
 
-  let sql = 'SELECT * FROM country WHERE countryId = ?'
-  try {
-    await connectionMySQL.query(sql, [id], (error, results, fields) => {
-      if (error) throw error
-      res.json(results)
-    })
-  } catch (error) {
-    return res.status(500).json({
-      error: error.message,
-    })
-  }
-}
+---
 
-exports.createCountry = async (req, res) => {
-  const {
-    countryCurrencyId,
-    countryLanguageId,
-    countryName,
-    countryPopulation,
-  } = req.body
-
-  let sql =
-    'INSERT INTO country (countryCurrencyId, countryLanguageId, countryName , countryPopulation) VALUES (?,?,?,?)'
-
-  let params = [
-    countryCurrencyId,
-    countryLanguageId,
-    countryName,
-    countryPopulation,
-  ]
-
-  if (!countryName || countryName.trim().length < 1) {
-    return res.status(400).json({
-      success: false,
-      error: 'You have not write a countryName',
-    })
-  }
-
-  try {
-    await connectionMySQL.query(sql, params, (error, results, fields) => {
-      if (error) throw error
-      return res.status(201).json({
-        success: true,
-        error: '',
-        message: 'You have add a new Country!',
-      })
-    })
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    })
-  }
-}
-
-exports.updateCountry = async (req, res) => {
-  const {
-    countryCurrencyId,
-    countryLanguageId,
-    countryName,
-    countryPopulation,
-    countryId,
-  } = req.body
-
-  let sql =
-    'UPDATE country SET countryCurrencyId = ?, countryLanguageId = ?, countryName = ?, countryPopulation = ? WHERE  countryId = ?'
-  let params = [
-    countryCurrencyId,
-    countryLanguageId,
-    countryName,
-    countryPopulation,
-    countryId,
-  ]
-
-  if (!countryName || countryName.trim().length < 1) {
-    return res.status(400).json({
-      success: false,
-      error: 'You have not write any country name for the Country',
-    })
-  }
-
-  if (!countryId) {
-    return res.status(400).json({
-      success: false,
-      error: 'You have not provide any ID of the country wish to update!!',
-    })
-  }
-
-  try {
-    await connectionMySQL.query(sql, params, (error, results, fields) => {
-      if (error) throw error
-      return res.status(201).json({
-        success: true,
-        error: '',
-      })
-    })
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    })
-  }
-}
-
-exports.deleteCountry = async (req, res) => {
-  const { countryId } = req.body
-
-  let sql = 'DELETE FROM country WHERE countryId = ?'
-
-  if (!countryId) {
-    return res.status(400).json({
-      success: false,
-      error: 'You have not provide any ID of the Country wish to delete!',
-    })
-  }
-
-  try {
-    await connectionMySQL.query(sql, [countryId], (error, results, fields) => {
-      if (error) throw error
-      return res.status(201).json({
-        success: true,
-        error: '',
-        message: 'country is deleted!',
-      })
-    })
-  } catch (error) {
-    return res.status(500).json({
-      success: false,
-      error: error.message,
-    })
-  }
-}
-```
-
-- FETCH API Frontend::
-
-```javascript
-// fetch för att hämta landets flagga
-fetch('http://localhost:3000/api/countries')
-  .then((response) => response.json())
-  .then((countries) => {
-    for (let i = 0; i < this.comments.length; i++) {
-      for (let j = 0; j < countries.length; j++) {
-        if (this.comments[i].country === countries[j].countryName) {
-          this.comments[i].flagImage = countries[j].countryFlag
-        }
-      }
-    }
-  })
-```
-
-### INSOMNIA: (Live preview)
-
-### FRONT END: (Live preview)
+### 📄 [Detailed Information of the Project](Detail_Info.md)
