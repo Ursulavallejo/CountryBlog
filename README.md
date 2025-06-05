@@ -1,6 +1,7 @@
 #### May 2024
 
-#### The development team behind 🌍 TRAVEL BLOG: Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
+> The development team behind 🌍 TRAVEL BLOG:
+> Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
 
 **Project Summary**
 
