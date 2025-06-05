@@ -1,11 +1,11 @@
 #### May 2024
 
-> The development team behind 🌍 TRAVEL BLOG:
+> The development team behind 🌍 COUNTRY BLOG:
 > Manouella Papadopoulos, Vigan Kumnova and Ursula Vallejo.
 
 **Project Summary**
 
-Travel Blog is a full-stack application developed as part of the Backend Programming (LABB 3) course at IT-Högskolan. The goal of the project was to create an interactive blog where users can explore countries and cities, view detailed travel information, and read or submit comments based on their experiences.
+Country Blog is a full-stack application developed as part of the Backend Programming (LABB 3) course at IT-Högskolan. The goal of the project was to create an interactive blog where users can explore countries and cities, view detailed travel information, and read or submit comments based on their experiences.
 
 The backend is built with MySQL and MongoDB (via Mongoose) to manage structured data (countries, cities, languages, currencies) and user-generated content (comments). The frontend, built with Vue.js, allows users to:
 
